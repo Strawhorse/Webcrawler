@@ -44,7 +44,12 @@ public class Crawler {
 //    search method with two inputs - the initial URL and the search word/s
 
     public void search(String url, String searchTerm) {
-        
+
+        while(this.pagesVisited.size() < MAX_SEARCH_PAGES){
+            String currentURL;
+
+//            Need Spiderleg class now
+        }
 
     }
     

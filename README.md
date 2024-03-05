@@ -1,5 +1,5 @@
 # Webcrawler
- Webcrawler with simple search fiunction for keywords and hyperlinks built in Java 17
+ Webcrawler with simple search function for keywords and hyperlinks built in Java 17 and jsoup package
 
 No workaround for site protection from spiders, something that could be dealt with later
 
@@ -12,6 +12,13 @@ To be done:
 - Keep track of pages visited
 - Limit the number of pages to search
 
+
+Found good information at:
+- https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/Document.html
+- http://www.netinstructions.com/how-to-make-a-simple-web-crawler-in-java/#google_vignette
+
+
+Experiencing some issues with the imports of jsoup
 
 
 

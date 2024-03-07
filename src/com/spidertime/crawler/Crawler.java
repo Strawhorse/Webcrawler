@@ -14,19 +14,6 @@ public class Crawler {
 //    use a Set to store pages visited because it only stores one copy of each item
 //  Lists have special methods such as adding an entry to the end of a list or adding an entry to the beginning
 
-
-
-    /**
-     * Our main launching point for the Spider's functionality. It creates spider legs
-     * that make an HTTP request and parse the response (the page).
-     *
-     * @param url
-     *            - The start of the spider
-     * @param searchTerm
-     *            - The word or string that you are searching for
-     */
-
-
 //    method to choose the next site to visit based on what's stored in the set and list above
 
     /*We get the first entry from pagesToVisit, check that URL isn't in our set of URLs we visited, and then return it. If for some reason we've already visited the URL (meaning it's in our set pagesVisited) we keep looping through the list of pagesToVisit and returning the next URL.*/
@@ -48,7 +35,20 @@ public class Crawler {
         while(this.pagesVisited.size() < MAX_SEARCH_PAGES){
             String currentURL;
 
-//            Need Spiderleg class now
+            SpiderLeg leg = new SpiderLeg();
+            if(this.pagesToVisit.isEmpty()){
+                currentURL = url;
+                this.pagesVisited.add(url);
+            }
+            else {
+                currentURL = this.nextURLToVisit();
+            }
+            leg.crawl(currentURL);
+
+//            this is where the crawl method begins to run first to take the page (currentURL) and search it for hyperlinks
+
+            boolean successFound = leg.wordSearch(searchTerm);
+
         }
 
     }

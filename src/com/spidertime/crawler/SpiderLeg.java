@@ -1,5 +1,6 @@
 package com.spidertime.crawler;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import org.jsoup.Connection;
@@ -8,7 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import static jdk.internal.net.http.HttpRequestImpl.USER_AGENT;
+//import static jdk.internal.net.http.HttpRequestImpl.USER_AGENT;
 
 
 //    Why the USER_AGENT imported above
@@ -19,7 +20,7 @@ import static jdk.internal.net.http.HttpRequestImpl.USER_AGENT;
 
 public class SpiderLeg {
 
-    private static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36\n";
+    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1";
     private List<String> hyperlinks = new LinkedList<String>();
     private Document htmlDocument;
 
@@ -28,11 +29,11 @@ public class SpiderLeg {
 
 
 
-    public void crawl(String url) {
+    public boolean crawl(String url) {
         try {
 
-            Connection conn = Jsoup.connect(url).userAgent(USER_AGENT);
-            this.htmlDocument = conn.get();
+            Connection connection = Jsoup.connect(url).userAgent(USER_AGENT);
+            this.htmlDocument = connection.get();
 
             System.out.println("Received web page at: " + url);
 
@@ -46,11 +47,13 @@ public class SpiderLeg {
             for (Element link: pageLinks){
                 this.hyperlinks.add(link.absUrl("href"));
             }
+            return true;
 
 //            adds the href links to the hyperlinks String list instantiated at the start
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error in our http request: " + e);
+            return false;
         }
     }
 

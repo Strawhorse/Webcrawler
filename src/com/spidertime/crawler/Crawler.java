@@ -49,7 +49,15 @@ public class Crawler {
 
             boolean successFound = leg.wordSearch(searchTerm);
 
+            if(successFound){
+                System.out.printf("*** Success *** Word %s found at %s%n", searchTerm, currentURL);
+                break;
+            }
+            this.pagesToVisit.addAll(leg.getLinks());
         }
+
+//        finally print completed results
+        System.out.printf("*** Done *** Visited %s websites", this.pagesVisited.size());
 
     }
     

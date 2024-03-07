@@ -5,6 +5,8 @@ import java.util.List;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import static jdk.internal.net.http.HttpRequestImpl.USER_AGENT;
 
@@ -29,10 +31,16 @@ public class SpiderLeg {
 
 //            A list of Elements, with methods that act on every element in the list.
 //             To get an Elements object, use the Element.select(String) method.
+//            a[href] captures all the URLs on the page
 
-            Elements pageLinks = htmlDocument.select("a[href");
+            Elements pageLinks = htmlDocument.select("a[href]");
+            System.out.println("Found (" + pageLinks.size() + ") links");
 
+            for (Element link: pageLinks){
+                this.hyperlinks.add(link.absUrl("href"));
+            }
 
+//            adds the href links to the hyperlinks String list instantiated at the start
 
         } catch (Exception e) {
             System.out.println("Error in our http request: " + e);
@@ -40,5 +48,10 @@ public class SpiderLeg {
     }
 
 
+
+//    method to search for a keyword
+    public boolean wordSearch(String searchWord){
+        
+    }
 
 }

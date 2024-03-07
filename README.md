@@ -22,6 +22,9 @@ Experiencing some issues with the imports of jsoup - resolved issue by working o
 https://jsoup.org/apidocs/org/jsoup/select/Elements.html
 https://jsoup.org/cookbook/input/load-document-from-url
 
+Imported Jsoup jar file and added on Intellij
+
+
 
 
 

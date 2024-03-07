@@ -18,7 +18,14 @@ Found good information at:
 - http://www.netinstructions.com/how-to-make-a-simple-web-crawler-in-java/#google_vignette
 
 
-Experiencing some issues with the imports of jsoup
+Experiencing some issues with the imports of jsoup - resolved issue by working on docs:
+https://jsoup.org/apidocs/org/jsoup/select/Elements.html
+https://jsoup.org/cookbook/input/load-document-from-url
+
+
+
+
+
 
 
 

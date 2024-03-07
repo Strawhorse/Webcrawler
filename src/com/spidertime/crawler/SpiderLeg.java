@@ -2,8 +2,6 @@ package com.spidertime.crawler;
 
 import java.util.LinkedList;
 import java.util.List;
-
-
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -26,6 +24,13 @@ public class SpiderLeg {
 
             Connection conn = Jsoup.connect(url).userAgent(USER_AGENT);
             this.htmlDocument = conn.get();
+
+            System.out.println("Received web page at: " + url);
+
+//            A list of Elements, with methods that act on every element in the list.
+//             To get an Elements object, use the Element.select(String) method.
+
+            Elements pageLinks = htmlDocument.select("a[href");
 
 
 

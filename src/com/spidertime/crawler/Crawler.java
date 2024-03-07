@@ -21,7 +21,7 @@ public class Crawler {
      * that make an HTTP request and parse the response (the page).
      *
      * @param url
-     *            - The starting point of the spider
+     *            - The start of the spider
      * @param searchTerm
      *            - The word or string that you are searching for
      */
